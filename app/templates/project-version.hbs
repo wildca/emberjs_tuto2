@@ -1,0 +1,42 @@
+<aside class="sidebar">
+  <ol class="toc-level-0">
+    <li class="toc-level-0" data-test-home>
+      {{#link-to 'project' 'ember'}}Home{{/link-to}}
+    </li>
+    <li class="toc-level-0">
+      Projects
+      <ol class="toc-level-1 selected" style="display: block;">
+        <li class="toc-level-1">{{#link-to 'project' 'ember' current-when=(eq activeProject 'ember') class="spec-ember"}}Ember{{/link-to}}</li>
+        <li class="toc-level-1">{{#link-to 'project' 'ember-data' current-when=(eq activeProject 'ember-data') class="spec-ember-data"}}Ember Data{{/link-to}}</li>
+        <li class="toc-level-1">{{#link-to 'project' 'ember-cli' current-when=(eq activeProject 'ember-cli') class="spec-ember"}}Ember CLI{{/link-to}}</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div class="select-container">
+    {{#power-select
+      onchange=(route-action "updateProject" activeProject)
+      options=projectVersions
+      selected=selectedProjectVersion
+      ariaLabel="Select a version"
+      required=true
+      searchField="compactVersion"
+      as |ver|
+    }}
+      {{ver.compactVersion}}
+    {{/power-select}}
+  </div>
+
+  {{table-of-contents
+    projectId=model.project.id
+    version=urlVersion
+    classesIDs=shownClassesIDs
+    moduleIDs=shownModuleIDs
+    namespaceIDs=shownNamespaceIDs
+    showPrivateClasses=showPrivateClasses
+    isShowingNamespaces=(version-lt selectedProjectVersion.compactVersion '2.16')
+  }}
+</aside>
+<section class="content">
+  {{outlet}}
+</section>

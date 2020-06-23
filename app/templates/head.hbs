@@ -1,0 +1,12 @@
+<title>{{model.title}}</title>
+
+<link rel="dns-prefetch" href="{{model.cdnDomain}}">
+<meta property="og:title" content={{model.title}}>
+
+{{#if model.description}}
+  <meta name="description" content={{model.description}}>
+  <meta property="og:description" content={{model.description}}>
+{{/if}}
+{{#if (not model.isRelease)}}
+  <link rel="canonical" href={{model.canonicalUrl}}>
+{{/if}}

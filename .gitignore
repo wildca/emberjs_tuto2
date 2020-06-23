@@ -1,0 +1,45 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+/concat-stats-for
+
+# Terraform
+terraform.tfstate
+terraform.tfstate.backup
+.env
+.envrc
+
+# compiled output
+/dist/
+/tmp/
+
+# dependencies
+/bower_components/
+/node_modules/
+
+# misc
+/.projectile
+/.env*
+/.pnp*
+/.sass-cache
+/connect.lock
+/coverage/
+/libpeerconnection.log
+/npm-debug.log*
+/testem.log
+/yarn-error.log
+
+public/json-docs/
+public/rev-index/
+jsconfig.json
+
+package-lock.json
+
+
+browserstack-local.pid
+local.log
+.vscode/
+
+# ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try
